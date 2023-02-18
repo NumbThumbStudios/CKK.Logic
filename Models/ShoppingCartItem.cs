@@ -19,5 +19,11 @@
             SetProduct(product);
             SetQuantity(quantity);
         }
+
+        // methods
+        public decimal GetTotal()
+        {
+            return _product.GetPrice() * GetQuantity();
+        }
     }
 }
