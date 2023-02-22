@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK", "H:\Structured Projec
 		{0A2FC8E1-497F-4DEA-8665-4181C83907AF} = {0A2FC8E1-497F-4DEA-8665-4181C83907AF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CKK.ShoppingCartTest.tests", "..\CKK.ShoppingCart.tests\CKK.ShoppingCartTest.tests.csproj", "{CCDC6C9A-DC8F-4500-90BF-9C36B505BD63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CKK.ShoppingCartTests.tests", "Tests\CKK.ShoppingCartTests.tests\CKK.ShoppingCartTests.tests.csproj", "{972FA076-C5E5-4F17-81C2-F0A249B29AC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,10 @@ Global
 		{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCDC6C9A-DC8F-4500-90BF-9C36B505BD63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCDC6C9A-DC8F-4500-90BF-9C36B505BD63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCDC6C9A-DC8F-4500-90BF-9C36B505BD63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCDC6C9A-DC8F-4500-90BF-9C36B505BD63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

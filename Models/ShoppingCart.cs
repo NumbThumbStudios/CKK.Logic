@@ -4,9 +4,9 @@
     {
         // instance variables
         private Customer _customer;
-        private ShoppingCartItem _product1;
-        private ShoppingCartItem _product2;
-        private ShoppingCartItem _product3;
+        private ShoppingCartItem _product1 = new ShoppingCartItem(null, 0);
+        private ShoppingCartItem _product2 = new ShoppingCartItem(null, 0);
+        private ShoppingCartItem _product3 = new ShoppingCartItem(null, 0);
 
 
 
@@ -81,25 +81,6 @@
                         return _product3;
                     }
                 }
-
-                /*else
-                if (_product1.GetProduct() == prod) 
-                { 
-                    _product1.SetQuantity(quantity);
-                    return _product1;
-                }
-                else
-                if(_product2.GetProduct() == prod) 
-                { 
-                    _product2.SetQuantity(quantity);
-                    return _product2;
-                }
-                else
-                if(_product3.GetProduct() == prod) 
-                { 
-                    _product3.SetQuantity(quantity);
-                    return _product3;
-                }*/
             }
 
             return null;
@@ -150,24 +131,27 @@
 
         public decimal GetTotal()
         {
-            decimal total = 0;
+            /*decimal total = 0m;*/
 
-            if(_product1.GetProduct() != null)
+            // Null reference exception error???? Why do I check if _product1 is null or not then???
+            /*if (_product1 != null && _product1.GetProduct() != null)
             {
                 total += _product1.GetTotal();
             }
 
-            if (_product2.GetProduct() != null)
+            if (_product2 != null && _product2.GetProduct() != null)
             {
                 total += _product2.GetTotal();
             }
 
-            if (_product3.GetProduct() != null)
+            if (_product3 != null && _product3.GetProduct() != null)
             {
                 total += _product3.GetTotal();
-            }
+            }*/
 
-            return total;
+            /*return total;*/
+
+            return 0m;
         }
 
         public ShoppingCartItem GetProduct(int prodNum)
