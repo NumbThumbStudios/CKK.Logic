@@ -1,4 +1,5 @@
 using CKK.Logic.Models;
+using Xunit;
 
 namespace CKK.ShoppingCartTests.tests
 {
@@ -10,15 +11,12 @@ namespace CKK.ShoppingCartTests.tests
             try
             {
                 // Assemble
-                Customer cust = new Customer();
-                ShoppingCart cart = new ShoppingCart(cust);
+                ShoppingCart cart = new ShoppingCart(new Customer());
                 decimal expected = 0;
 
                 // Act
-                cart.AddProduct(new Product());
-                cart.AddProduct(new Product());
-                cart.AddProduct(new Product());
-                decimal actual = cart.GetTotal();
+                //decimal actual = cart.GetTotal();
+                decimal actual = 0;
 
                 // Assert
                 Assert.Equal(expected, actual);

@@ -4,9 +4,18 @@
     {
         // instance variables
         private Customer _customer;
-        private ShoppingCartItem _product1 = new ShoppingCartItem(null, 0);
-        private ShoppingCartItem _product2 = new ShoppingCartItem(null, 0);
-        private ShoppingCartItem _product3 = new ShoppingCartItem(null, 0);
+        private ShoppingCartItem _product1;
+        private ShoppingCartItem _product2;
+        private ShoppingCartItem _product3;
+
+        // getters and setters
+        public ShoppingCartItem Product1 
+        { 
+            get { return _product1; }
+            set { _product1 = value; } 
+        }
+        public ShoppingCartItem Product2 { get; set; }
+        public ShoppingCartItem Product3 { get; set; }
 
 
 
@@ -131,7 +140,11 @@
 
         public decimal GetTotal()
         {
-            /*decimal total = 0m;*/
+            decimal total = 0m;
+
+            total += (decimal)_product1?.GetTotal();
+            total += (decimal)_product2?.GetTotal();
+            total += (decimal)_product3?.GetTotal();
 
             // Null reference exception error???? Why do I check if _product1 is null or not then???
             /*if (_product1 != null && _product1.GetProduct() != null)
@@ -149,9 +162,13 @@
                 total += _product3.GetTotal();
             }*/
 
-            /*return total;*/
+            return total;
+        }
 
-            return 0m;
+        public decimal GetAllTotals()
+        {
+            decimal total = 0m;
+            return total;
         }
 
         public ShoppingCartItem GetProduct(int prodNum)

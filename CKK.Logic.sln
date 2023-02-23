@@ -5,12 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK.Logic", "CKK.Logic.csproj", "{0A2FC8E1-497F-4DEA-8665-4181C83907AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK", "H:\Structured Project 1\Module 4\4-3 Loops\CKK\CKK.csproj", "{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0A2FC8E1-497F-4DEA-8665-4181C83907AF} = {0A2FC8E1-497F-4DEA-8665-4181C83907AF}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK.ShoppingCartTests.tests", "Tests\CKK.ShoppingCartTests.tests\CKK.ShoppingCartTests.tests.csproj", "{972FA076-C5E5-4F17-81C2-F0A249B29AC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CKK.ShoppingCartTests.tests", "Tests\CKK.ShoppingCartTests.tests\CKK.ShoppingCartTests.tests.csproj", "{972FA076-C5E5-4F17-81C2-F0A249B29AC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK", "CKK\CKK.csproj", "{137F29DD-A65E-4363-A62F-7B18A9777208}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,14 +19,14 @@ Global
 		{0A2FC8E1-497F-4DEA-8665-4181C83907AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A2FC8E1-497F-4DEA-8665-4181C83907AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A2FC8E1-497F-4DEA-8665-4181C83907AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCA726DD-3F7A-4558-A9E4-F29AF96822AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{972FA076-C5E5-4F17-81C2-F0A249B29AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{137F29DD-A65E-4363-A62F-7B18A9777208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137F29DD-A65E-4363-A62F-7B18A9777208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137F29DD-A65E-4363-A62F-7B18A9777208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137F29DD-A65E-4363-A62F-7B18A9777208}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
