@@ -10,11 +10,6 @@ namespace CKK
         {
             Store mikesGeneral = new Store();
 
-            ShoppingCart cart = new ShoppingCart(new Customer());
-            Console.WriteLine("Shopping Cart Created.");
-            //decimal total = cart.GetAllTotals();
-            //Console.WriteLine($"Cart Total: {total:C}");
-
             Console.WriteLine("Welcome to Corey's Knick Knacks");
             var input = "";
             while (input != "4")

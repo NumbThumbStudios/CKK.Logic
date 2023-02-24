@@ -4,4 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="CKK\**" />
+    <Compile Remove="Tests\**" />
+    <EmbeddedResource Remove="CKK\**" />
+    <EmbeddedResource Remove="Tests\**" />
+    <None Remove="CKK\**" />
+    <None Remove="Tests\**" />
+  </ItemGroup>
+
 </Project>

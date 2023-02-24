@@ -8,15 +8,6 @@
         private ShoppingCartItem _product2;
         private ShoppingCartItem _product3;
 
-        // getters and setters
-        public ShoppingCartItem Product1 
-        { 
-            get { return _product1; }
-            set { _product1 = value; } 
-        }
-        public ShoppingCartItem Product2 { get; set; }
-        public ShoppingCartItem Product3 { get; set; }
-
 
 
 
@@ -142,12 +133,8 @@
         {
             decimal total = 0m;
 
-            total += (decimal)_product1?.GetTotal();
-            total += (decimal)_product2?.GetTotal();
-            total += (decimal)_product3?.GetTotal();
-
             // Null reference exception error???? Why do I check if _product1 is null or not then???
-            /*if (_product1 != null && _product1.GetProduct() != null)
+            if (_product1 != null && _product1.GetProduct() != null)
             {
                 total += _product1.GetTotal();
             }
@@ -160,7 +147,7 @@
             if (_product3 != null && _product3.GetProduct() != null)
             {
                 total += _product3.GetTotal();
-            }*/
+            }
 
             return total;
         }
