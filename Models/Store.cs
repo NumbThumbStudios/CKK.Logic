@@ -1,13 +1,17 @@
-﻿namespace CKK.Logic.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace CKK.Logic.Models
 {
     public class Store
     {
         // instance variables
         private int _id;
         private string _name;
-        private Product _product1;
-        private Product _product2;
-        private Product _product3;
+        private List<StoreItem> items = new List<StoreItem>();
+
+
+
 
         // getters and setters
         public int GetId() { return _id; }
@@ -17,68 +21,70 @@
         public void SetName(string name) { _name = name; }
 
         // methods
-        public void AddStoreItem(Product prod)
+        public StoreItem AddStoreItem(Product prod, int quantity = 1)
         {
-            if(_product1 == null) { _product1 = prod; }
+            StoreItem my_item = null;
+
+            if(quantity <= 0) { return my_item; }
+
+            var linq_find_item =
+                from item in items
+                where (item.GetProduct() == prod)
+                select item;
+
+            if(linq_find_item.Any())
+            {
+                linq_find_item.First().SetQuantity(linq_find_item.First().GetQuantity() + quantity);
+                my_item = linq_find_item.First();
+            }
             else
-            if(_product2 == null) { _product2 = prod; }
-            else
-            if(_product3 == null) { _product3 = prod; }
+            {
+                my_item = new StoreItem(prod, quantity);
+                items.Add(my_item);
+            }
+
+            return my_item;
         }
 
-        public void RemoveStoreItem(int productNum)
+        public StoreItem RemoveStoreItem(int id, int quantity)
         {
-            switch(productNum)
+            StoreItem my_item = null;
+
+            var linq_find_item =
+                from item in items
+                where (item.GetProduct().GetId() == id)
+                select item;
+
+            if(linq_find_item.Any())
             {
-                case 1:
-                    _product1 = null;
-                    break;
-
-                case 2:
-                    _product2 = null;
-                    break;
-
-                case 3:
-                    _product3 = null;
-                    break;
+                if(linq_find_item.First().GetQuantity() < quantity) { quantity = linq_find_item.First().GetQuantity(); }
+                linq_find_item.First().SetQuantity(linq_find_item.First().GetQuantity() - quantity);
+                my_item = linq_find_item.First();
             }
+
+            return my_item;
         }
 
-        public Product GetStoreItem(int productNum)
+        public StoreItem FindStoreItemById(int id)
         {
-            switch(productNum)
+            StoreItem my_item = null;
+
+            var linq_find_item = 
+                from item in items
+                where (item.GetProduct().GetId() == id)
+                select item;
+
+            if(linq_find_item.Any())
             {
-                case 1:
-                    return _product1;
-
-                case 2:
-                    return _product2;
-
-                case 3:
-                    return _product3;
+                my_item = linq_find_item.First();
             }
 
-            return null;
+            return my_item;
         }
 
-        public Product FindStoreItemById(int id)
+        public List<StoreItem> GetStoreItems()
         {
-            if(_product1 != null && _product1.GetId() == id)
-            {
-                return _product1;
-            }
-
-            if(_product2 != null && _product2.GetId() == id)
-            {
-                return _product2;
-            }
-
-            if(_product3 != null && _product3.GetId() == id)
-            {
-                return _product3;
-            }
-
-            return null;
+            return items;
         }
     }
 }

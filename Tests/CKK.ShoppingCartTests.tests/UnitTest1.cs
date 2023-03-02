@@ -7,7 +7,7 @@ namespace CKK.ShoppingCartTests.tests
     {
         // Add Product...
         [Fact]
-        public void AddProduct_Success()
+        public void ShoppingCart_AddProduct_Success()
         {
             try
             {
@@ -30,7 +30,7 @@ namespace CKK.ShoppingCartTests.tests
 
         // Remove Product...
         [Fact]
-        public void RemoveProduct_Success()
+        public void ShoppingCart_RemoveProduct_Success()
         {
             try
             {
@@ -55,7 +55,7 @@ namespace CKK.ShoppingCartTests.tests
 
         // Get Shopping Cart Total...
         [Fact]
-        public void GetTotal_Success()
+        public void ShoppingCart_GetTotal_Success()
         {
             try
             {
