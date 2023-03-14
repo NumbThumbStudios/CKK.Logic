@@ -1,17 +1,15 @@
-﻿namespace CKK.Logic.Models
+﻿using CKK.Logic.Interfaces;
+
+namespace CKK.Logic.Models
 {
-    public class ShoppingCartItem
+    public class ShoppingCartItem: InventoryItem
     {
-        // instance variables
-        private Product _product;
-        private int _quantity;
-
         // getters and setters
-        public Product GetProduct() { return _product; }
-        public void SetProduct(Product product) { _product = product; }
+        public Product GetProduct() { return base.Prod; }
+        public void SetProduct(Product product) { base.Prod = product; }
 
-        public int GetQuantity() { return _quantity; }
-        public void SetQuantity(int quantity) { _quantity = quantity; }
+        public int GetQuantity() { return base.Quantity; }
+        public void SetQuantity(int quantity) { base.Quantity = quantity; }
 
         // constructors
         public ShoppingCartItem(Product product, int quantity)
@@ -23,7 +21,7 @@
         // methods
         public decimal GetTotal()
         {
-            return _product.GetPrice() * GetQuantity();
+            return base.Prod.GetPrice() * GetQuantity();
         }
     }
 }

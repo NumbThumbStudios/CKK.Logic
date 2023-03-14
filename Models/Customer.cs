@@ -1,20 +1,20 @@
-﻿namespace CKK.Logic.Models
+﻿using CKK.Logic.Interfaces;
+
+namespace CKK.Logic.Models
 {
-    public class Customer
+    public class Customer : Entity
     {
         // instance variables
-        private int _id;
-        private string _name;
-        private string _address;
+        public string Address { get; set; }
 
         // getters and setters
-        public int GetId() { return _id; }
-        public void SetId(int id) { _id = id; }
+        public int GetId() { return base.Id; }
+        public void SetId(int id) { base.Id = id; }
 
-        public string GetName() { return _name; }
-        public void SetName(string name) { _name = name; }
+        public string GetName() { return base.Name; }
+        public void SetName(string name) { base.Name = name; }
 
-        public string GetAddress() { return _address; }
-        public void SetAddress(string address) { _address = address; }
+        public string GetAddress() { return Address; }
+        public void SetAddress(string address) { Address = address; }
     }
 }

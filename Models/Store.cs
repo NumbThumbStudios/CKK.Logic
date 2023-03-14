@@ -1,24 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CKK.Logic.Interfaces;
 
 namespace CKK.Logic.Models
 {
-    public class Store
+    public class Store: Entity
     {
         // instance variables
-        private int _id;
-        private string _name;
         private List<StoreItem> items = new List<StoreItem>();
 
 
 
 
         // getters and setters
-        public int GetId() { return _id; }
-        public void SetId(int id) { _id = id; }
+        public int GetId() { return base.Id; }
+        public void SetId(int id) { base.Id = id; }
 
-        public string GetName() { return _name; }
-        public void SetName(string name) { _name = name; }
+        public string GetName() { return base.Name; }
+        public void SetName(string name) { base.Name = name; }
 
         // methods
         public StoreItem AddStoreItem(Product prod, int quantity = 1)

@@ -6,8 +6,9 @@ namespace CKK.Logic.Models
     public class ShoppingCart
     {
         // instance variables
-        private Customer _customer;
-        private List<ShoppingCartItem> products;
+        public Customer Customer { get; set; }
+        //private List<ShoppingCartItem> products;
+        public List<ShoppingCartItem> Products { get; set; }
 
 
 
@@ -15,8 +16,8 @@ namespace CKK.Logic.Models
         // constructors
         public ShoppingCart(Customer cust)
         {
-            _customer = cust;
-            products = new List<ShoppingCartItem>();
+            Customer = cust;
+            Products = new List<ShoppingCartItem>();
         }
 
 
@@ -25,7 +26,7 @@ namespace CKK.Logic.Models
         // methods
         public int GetCustomerId()
         {
-            return _customer.GetId();
+            return Customer.GetId();
         }
 
         public ShoppingCartItem AddProduct(Product prod, int quantity = 1)
@@ -35,7 +36,7 @@ namespace CKK.Logic.Models
             if(quantity <= 0) { return my_item; }
 
             var linq_find_item =
-                from item in products
+                from item in Products
                 where (item.GetProduct() == prod)
                 select item;
 
@@ -47,7 +48,7 @@ namespace CKK.Logic.Models
             else
             {
                 my_item = new ShoppingCartItem(prod, quantity);
-                products.Add(my_item);
+                Products.Add(my_item);
             }
 
 
@@ -59,7 +60,7 @@ namespace CKK.Logic.Models
             ShoppingCartItem my_item = null;
 
             var linq_find_item = 
-                from item in products
+                from item in Products
                 where (item.GetProduct().GetId() == id)
                 select item;
 
@@ -71,7 +72,7 @@ namespace CKK.Logic.Models
                 {
                     linq_find_item.First().SetQuantity(0);
                     my_item = linq_find_item.First();
-                    products.Remove(linq_find_item.First());
+                    Products.Remove(linq_find_item.First());
                 }
                 else
                 {
@@ -87,7 +88,7 @@ namespace CKK.Logic.Models
         {
             decimal total = 0;
 
-            foreach (var item in products)
+            foreach (var item in Products)
             {
                 total += item.GetTotal();
             }
@@ -100,7 +101,7 @@ namespace CKK.Logic.Models
             ShoppingCartItem my_item = null;
 
             var linq_find_item =
-                from item in products
+                from item in Products
                 where (item.GetProduct().GetId().Equals(id))
                 select item;
 
@@ -114,7 +115,7 @@ namespace CKK.Logic.Models
 
         public List<ShoppingCartItem> GetProducts()
         {
-            return products;
+            return Products;
         }
     }
 }
