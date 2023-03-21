@@ -4,22 +4,25 @@ using CKK.Logic.Interfaces;
 
 namespace CKK.Logic.Models
 {
-    public class Store: Entity
+    public class Store: Entity, IStore
     {
-        // instance variables
+        // ----    INSTANCE VARIABLES    ---- //
         private List<StoreItem> items = new List<StoreItem>();
 
 
 
 
-        // getters and setters
+        // ----    AUTO PROPERTIES/GETTERS & SETTERS    ---- //
         public int GetId() { return base.Id; }
         public void SetId(int id) { base.Id = id; }
 
         public string GetName() { return base.Name; }
         public void SetName(string name) { base.Name = name; }
 
-        // methods
+
+
+
+        // ----    METHODS    ---- //
         public StoreItem AddStoreItem(Product prod, int quantity = 1)
         {
             StoreItem my_item = null;

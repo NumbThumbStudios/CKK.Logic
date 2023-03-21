@@ -1,19 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using CKK.Logic.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CKK.Logic.Models
 {
-    public class ShoppingCart
+    public class ShoppingCart : IShoppingCart
     {
-        // instance variables
+        // ----    INSTANCE VARIABLES    ---- //
         public Customer Customer { get; set; }
-        //private List<ShoppingCartItem> products;
         public List<ShoppingCartItem> Products { get; set; }
 
 
 
 
-        // constructors
+        // ----    CONSTRUCTORS    ---- //
         public ShoppingCart(Customer cust)
         {
             Customer = cust;
@@ -23,7 +23,7 @@ namespace CKK.Logic.Models
 
 
 
-        // methods
+        // ----    METHODS    ---- //
         public int GetCustomerId()
         {
             return Customer.GetId();

@@ -4,10 +4,13 @@ namespace CKK.Logic.Models
 {
     public class Customer : Entity
     {
-        // instance variables
+        // ----    INSTANCE VARIABLES    ---- //
         public string Address { get; set; }
 
-        // getters and setters
+
+
+
+        // ----    AUTO PROPERTIES/GETTERS & SETTERS    ---- //
         public int GetId() { return base.Id; }
         public void SetId(int id) { base.Id = id; }
 
