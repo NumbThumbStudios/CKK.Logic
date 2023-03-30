@@ -1,4 +1,4 @@
-﻿using CKK.Logic.Models;
+﻿/*using CKK.Logic.Models;
 using System;
 
 namespace CKK
@@ -38,27 +38,27 @@ namespace CKK
 
         public static void ShowItems(Store store)
         {
-            Console.WriteLine("------------------");
-            if (store.GetStoreItem(1) == null && store.GetStoreItem(2) == null && store.GetStoreItem(3) == null)
+            *//*Console.WriteLine("------------------");
+            if (store.FindStoreItemById(1) == null && store.FindStoreItemById(2) == null && store.FindStoreItemById(3) == null)
             {
                 Console.WriteLine("There is nothing in your store!");
                 Console.WriteLine("------------------");
                 return;
             }
             Console.WriteLine("The items in your store are:");
-            if (store.GetStoreItem(1) != null)
+            if (store.FindStoreItemById(1) != null)
             {
-                Console.WriteLine($"1. {store.GetStoreItem(1).GetName()}: {store.GetStoreItem(1).GetPrice():C}");
+                Console.WriteLine($"1. {store.FindStoreItemById(1).GetName()}: {store.FindStoreItemById(1).GetPrice():C}");
             }
-            if (store.GetStoreItem(2) != null)
+            if (store.FindStoreItemById(2) != null)
             {
-                Console.WriteLine($"2. {store.GetStoreItem(2).GetName()}: {store.GetStoreItem(2).GetPrice():C}");
+                Console.WriteLine($"2. {store.FindStoreItemById(2).GetName()}: {store.FindStoreItemById(2).GetPrice():C}");
             }
-            if(store.GetStoreItem(3) != null)
+            if(store.FindStoreItemById(3) != null)
             {
-                Console.WriteLine($"3. {store.GetStoreItem(3).GetName()} : {store.GetStoreItem(3).GetPrice():C}");
+                Console.WriteLine($"3. {store.FindStoreItemById(3).GetName()} : {store.FindStoreItemById(3).GetPrice():C}");
             }
-            Console.WriteLine("------------------");
+            Console.WriteLine("------------------");*//*
         }
 
         public static void CreateAndAddItem(Store store)
@@ -110,7 +110,7 @@ namespace CKK
                     Console.WriteLine("Please enter a valid number choice.");
                 }
             }
-            store.RemoveStoreItem(id);
+            //store.RemoveStoreItem(id);
             Console.WriteLine("Removed Item.");
         }
 
@@ -125,3 +125,4 @@ namespace CKK
         }
     }
 }
+*/

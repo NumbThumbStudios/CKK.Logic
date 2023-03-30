@@ -1,6 +1,8 @@
 ﻿using CKK.Logic.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using CKK.Logic.Exceptions;
+using System;
 
 namespace CKK.Logic.Models
 {
@@ -33,7 +35,7 @@ namespace CKK.Logic.Models
         {
             ShoppingCartItem my_item = null;
 
-            if(quantity <= 0) { return my_item; }
+            if(quantity <= 0) { /*return my_item;*/ throw new InventoryItemStockTooLowException(); }
 
             var linq_find_item =
                 from item in Products
@@ -57,6 +59,8 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem RemoveProduct(int id, int quantity)
         {
+            if(quantity < 0) { throw new ArgumentOutOfRangeException(); }
+
             ShoppingCartItem my_item = null;
 
             var linq_find_item = 
@@ -80,6 +84,10 @@ namespace CKK.Logic.Models
                     my_item = linq_find_item.First();
                 }
             }
+            else
+            {
+                throw new ProductDoesNotExistException();
+            }
 
             return my_item;
         }
@@ -98,6 +106,8 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem GetProductById(int id)
         {
+            if (id < 0) { throw new InvalidIdException(); }
+
             ShoppingCartItem my_item = null;
 
             var linq_find_item =

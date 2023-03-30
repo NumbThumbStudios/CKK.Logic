@@ -5,11 +5,11 @@ namespace CKK.Logic.Models
     public class ShoppingCartItem: InventoryItem
     {
         // ----    AUTO PROPERTIES/GETTERS & SETTERS    ---- //
-        public Product GetProduct() { return base.Prod; }
-        public void SetProduct(Product product) { base.Prod = product; }
+        public Product GetProduct() { return Product; }
+        public void SetProduct(Product product) { Product = product; }
 
-        public int GetQuantity() { return base.Quantity; }
-        public void SetQuantity(int quantity) { base.Quantity = quantity; }
+        public int GetQuantity() { return Quantity; }
+        public void SetQuantity(int quantity) { Quantity = quantity; }
 
 
 
@@ -27,7 +27,7 @@ namespace CKK.Logic.Models
         // ----    METHODS    ---- //
         public decimal GetTotal()
         {
-            return base.Prod.GetPrice() * GetQuantity();
+            return base.Product.GetPrice() * GetQuantity();
         }
     }
 }
