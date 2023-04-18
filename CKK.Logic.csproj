@@ -1,14 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CKK.UI\**" />
     <Compile Remove="CKK\**" />
     <Compile Remove="Tests\**" />
+    <EmbeddedResource Remove="CKK.UI\**" />
     <EmbeddedResource Remove="CKK\**" />
     <EmbeddedResource Remove="Tests\**" />
+    <None Remove="CKK.UI\**" />
     <None Remove="CKK\**" />
     <None Remove="Tests\**" />
   </ItemGroup>

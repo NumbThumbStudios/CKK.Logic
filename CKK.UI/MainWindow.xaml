@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         
         <!-- CKK Image -->
-        <Image Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Source="Images/ckk_logo.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Source="/Images/ckk_logo.png"/>
 
         <!-- Login Box Container -->
         <Grid Grid.Column="2" Grid.Row="2">
