@@ -8,7 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\ckk_logo.png" />
+    <None Remove="Images\search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ckk_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CKK.Logic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\search.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CKK.UI"
         mc:Ignorable="d"
-        Title="CKK Home" Height="720" Width="1280" MinWidth="800" MinHeight="450" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="CKK Home" Height="720" Width="1280" MinWidth="800" MinHeight="450" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanResizeWithGrip">
+    <!--<Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF315482"/>
+            <GradientStop Color="#FFB0ECB1" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -29,13 +35,13 @@
             </Grid.ColumnDefinitions>
 
             <!-- Add Product Button -->
-            <Button x:Name="add_product_Button" MinWidth="120" MaxWidth="160" MinHeight="20" MaxHeight="48" HorizontalAlignment="Left" FontSize="16" Content="Add Product" Background="#FF50B450" BorderBrush="#FF348E2C" Foreground="White"/>
+            <Button x:Name="add_product_Button" MinWidth="120" MaxWidth="160" MinHeight="20" MaxHeight="48" HorizontalAlignment="Left" FontSize="16" Content="Add Product" Background="#FF50B450" BorderBrush="#FF2B2929" Foreground="White" Click="add_product_Button_Click"/>
 
             <!-- Search Bar -->
-            <TextBox x:Name="searchbar_TextBox" Grid.Column="2" Background="#FFECECEC" MinHeight="20" MaxHeight="48" Padding="10,5" BorderBrush="#FF50B450"/>
+            <TextBox x:Name="searchbar_TextBox" Grid.Column="2" Background="#FFD5D4D4" MinHeight="20" MaxHeight="48" Padding="10,5" BorderBrush="#FF2B2929" SelectionBrush="#FF2B2929"/>
             
             <!-- Search Button -->
-            <Rectangle Grid.Column="3" Fill="#FF50B450"/>
+            <Rectangle Grid.Column="3" Fill="#FF50B450" Stroke="#FF2B2929" Margin="-1,0,0,0"/>
             <Image Grid.Column="3" Source="/Images/search.png" Width="16"/>
 
         </Grid>
@@ -56,20 +62,35 @@
             </Grid.RowDefinitions>
 
             <!-- Header Names -->
-            <Rectangle Grid.Column="0" Grid.Row="1" Fill="#FFE8E8E8" Stroke="Gray" IsHitTestVisible="False"/>
+            <Rectangle Grid.Column="0" Grid.Row="1" Fill="#FFE8E8E8" Stroke="#FF2B2929" IsHitTestVisible="False" Margin="0,0,0,0"/>
             <TextBlock Grid.Column="0" Grid.Row="1" Text="ID" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Padding="8,0"/>
 
-            <Rectangle Grid.Column="1" Grid.Row="1" Fill="#FFE8E8E8" Stroke="Gray" IsHitTestVisible="False"/>
+            <Rectangle Grid.Column="1" Grid.Row="1" Fill="#FFE8E8E8" Stroke="#FF2B2929" IsHitTestVisible="False" Margin="-1,0,0,0"/>
             <TextBlock Grid.Column="1" Grid.Row="1" Text="Name" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Padding="8,0"/>
 
-            <Rectangle Grid.Column="2" Grid.Row="1" Fill="#FFE8E8E8" Stroke="Gray" IsHitTestVisible="False"/>
+            <Rectangle Grid.Column="2" Grid.Row="1" Fill="#FFE8E8E8" Stroke="#FF2B2929" IsHitTestVisible="False" Margin="-1,0,0,0"/>
             <TextBlock Grid.Column="2" Grid.Row="1" Text="Quantity" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Padding="8,0"/>
 
-            <Rectangle Grid.Column="3" Grid.Row="1" Fill="#FFE8E8E8" Stroke="Gray" IsHitTestVisible="False"/>
+            <Rectangle Grid.Column="3" Grid.Row="1" Fill="#FFE8E8E8" Stroke="#FF2B2929" IsHitTestVisible="False" Margin="-1,0,0,0"/>
             <TextBlock Grid.Column="3" Grid.Row="1" Text="Price" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Padding="8,0"/>
 
-            <Rectangle Grid.Column="4" Grid.Row="1" Fill="#FFE8E8E8" Stroke="Gray" IsHitTestVisible="False"/>
+            <Rectangle Grid.Column="4" Grid.Row="1" Fill="#FFE8E8E8" Stroke="#FF2B2929" IsHitTestVisible="False" Margin="-1,0,0,0"/>
             <TextBlock Grid.Column="4" Grid.Row="1" Text="Actions" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Padding="8,0"/>
+
+            <!-- Populated data goes here -->
+            <Rectangle Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Fill="#332B2929" Stroke="#FF2B2929" Margin="0,-1"/>
+
+            <Grid x:Name="main_content_area_Grid" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".25*"/>
+                    <ColumnDefinition Width="1.25*"/>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
