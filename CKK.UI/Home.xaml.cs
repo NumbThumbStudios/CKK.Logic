@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CKK.Logic.Interfaces;
+using CKK.Logic.Models;
 
 namespace CKK.UI
 {
@@ -20,9 +21,11 @@ namespace CKK.UI
     /// </summary>
     public partial class Home : Window
     {
-        
+        private IStore store;
+
         public Home()
         {
+            store = new Store();
             InitializeComponent();
         }
     }
