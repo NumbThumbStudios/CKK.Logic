@@ -18,9 +18,9 @@ namespace CKK.UI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }
@@ -33,10 +33,17 @@ namespace CKK.UI
         {
             // Validation done here...
 
+            // Create Main App Window...
+            AppWindow app = new AppWindow();
+            Application.Current.MainWindow = app;
+            app.Show();
+
+            app.Content = new CKK.UI.Pages.HomePage();
+
             // Create home screen upon proper validation...
-            Home home = new Home();
+            /*Home home = new Home();
             Application.Current.MainWindow = home;
-            home.Show();
+            home.Show();*/
 
             // Close login screen window...
             this.Close();
