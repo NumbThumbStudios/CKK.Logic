@@ -43,6 +43,7 @@ namespace CKK.Logic.Models
             }
             else
             {
+                prod.SetId(items.Count + 1);
                 my_item = new StoreItem(prod, quantity);
                 items.Add(my_item);
             }
@@ -73,6 +74,18 @@ namespace CKK.Logic.Models
             }
 
             return my_item;
+        }
+
+        public void DeleteStoreItem(int id)
+        {
+            for(int i = 0; i < items.Count; i++)
+            {
+                if (items[i].GetProduct().GetId().Equals(id))
+                {
+                    items.RemoveAt(i);
+                    return;
+                }
+            }
         }
 
         public StoreItem FindStoreItemById(int id)

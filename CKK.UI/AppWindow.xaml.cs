@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CKK.Logic.Interfaces;
+using CKK.Logic.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,13 @@ namespace CKK.UI
     /// </summary>
     public partial class AppWindow : Window
     {
+        // ----    INSTANCE VARIALBES    ---- //
+        public static IStore store = new Store();
+
+
+
+
+        // ----    CONSTRUCTOR    ---- //
         public AppWindow()
         {
             InitializeComponent();
