@@ -23,6 +23,8 @@ namespace CKK.UI.Pages
         public HomePage()
         {
             InitializeComponent();
+            //AppWindow.store.Load();
+            //LoadStoreItems();
         }
 
         private void add_product_Button_Click(object sender, RoutedEventArgs e)
@@ -33,6 +35,7 @@ namespace CKK.UI.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            AppWindow.store.Load();
             LoadStoreItems();
         }
 
@@ -43,7 +46,6 @@ namespace CKK.UI.Pages
 
             if(AppWindow.store.GetStoreItems().Count == 0)
             {
-
                 TextBlock tb_empty = new TextBlock();
                 tb_empty.Text = "No Products Added";
                 tb_empty.FontWeight = FontWeights.SemiBold;
@@ -57,8 +59,11 @@ namespace CKK.UI.Pages
                 return;
             }
 
-            foreach (var item in AppWindow.store.GetStoreItems())
+            //foreach (var item in AppWindow.store.GetStoreItems())
+            for(int i = 0; i < AppWindow.store.GetStoreItems().Count; i++)
             {
+                var item = AppWindow.store.GetStoreItems()[i];
+
                 int child_count = main_content_area_Grid.RowDefinitions.Count;
                 main_content_area_Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
 
@@ -71,12 +76,12 @@ namespace CKK.UI.Pages
                 rect.SetValue(Grid.RowProperty, child_count);
                 rect.SetValue(Grid.ColumnProperty, 0);
                 rect.SetValue(Grid.ColumnSpanProperty, 6);
-                if (item.GetProduct().GetId() % 2 == 0) { rect.Fill = new SolidColorBrush(even); } else { rect.Fill = new SolidColorBrush(odd); }
+                if (i % 2 == 0) { rect.Fill = new SolidColorBrush(even); } else { rect.Fill = new SolidColorBrush(odd); }
                 main_content_area_Grid.Children.Add(rect);
 
                 // Set product ID...
                 TextBlock tb_id = new TextBlock();
-                tb_id.Text = item.GetProduct().Id.ToString();
+                tb_id.Text = item.GetProduct().GetId().ToString();
                 tb_id.SetValue(Grid.RowProperty, child_count);
                 tb_id.SetValue(Grid.ColumnProperty, 0);
                 tb_id.Margin = margin;
@@ -151,6 +156,8 @@ namespace CKK.UI.Pages
             {
                 AppWindow.store.DeleteStoreItem(uid);
                 LoadStoreItems();
+
+                AppWindow.store.Save();
             }
         }
     }

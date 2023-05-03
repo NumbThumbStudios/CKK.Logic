@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CKK.Persistance\**" />
     <Compile Remove="CKK.UI\**" />
     <Compile Remove="CKK\**" />
     <Compile Remove="Tests\**" />
+    <EmbeddedResource Remove="CKK.Persistance\**" />
     <EmbeddedResource Remove="CKK.UI\**" />
     <EmbeddedResource Remove="CKK\**" />
     <EmbeddedResource Remove="Tests\**" />
+    <None Remove="CKK.Persistance\**" />
     <None Remove="CKK.UI\**" />
     <None Remove="CKK\**" />
     <None Remove="Tests\**" />

@@ -37,6 +37,7 @@ namespace CKK.UI.Pages
             Product prod = new Product();
             prod.Name = name_TextBox.Text;
             prod.Price = decimal.Parse(price_TextBox.Text);
+            prod.SetId(AppWindow.store.GetIdCounter());
             int quantity = int.Parse(quantity_TextBox.Text);
 
             AppWindow.store.AddStoreItem(prod, quantity);
@@ -44,11 +45,15 @@ namespace CKK.UI.Pages
             // If success...
             HomePage homePage = new HomePage();
             Application.Current.MainWindow.Content = homePage;
+            AppWindow.store.SetIdCounter(AppWindow.store.GetIdCounter() + 1);
+
+            AppWindow.store.Save();
         }
 
         private void id_TextBox_Loaded(object sender, RoutedEventArgs e)
         {
-            id_TextBox.Text = (AppWindow.store.GetStoreItems().Count + 1).ToString();
+            //id_TextBox.Text = (AppWindow.store.GetStoreItems().Count + 1).ToString();
+            id_TextBox.Text = AppWindow.store.GetIdCounter().ToString();
             id_TextBox.IsEnabled = false;
         }
     }

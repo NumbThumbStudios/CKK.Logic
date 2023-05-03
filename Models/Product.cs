@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace CKK.Logic.Models
 {
+    [Serializable]
     public class Product: Entity
     {
         // ----    INSTANCE VARIABLES    ---- //

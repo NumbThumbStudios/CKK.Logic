@@ -1,5 +1,6 @@
 ﻿using CKK.Logic.Interfaces;
 using CKK.Logic.Models;
+using CKK.Persistance.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace CKK.UI
     public partial class AppWindow : Window
     {
         // ----    INSTANCE VARIALBES    ---- //
-        public static IStore store = new Store();
+        //public static IStore store = new Store();
+        public static FileStore store = new FileStore();
 
 
 
