@@ -15,6 +15,7 @@ namespace CKK.Persistance.Models
     {
         // ----    INSTANCE VARIABLES    ---- //
         private List<StoreItem> items = new List<StoreItem>();
+        public string search_terms = "";
         public readonly string FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "Persistance" + Path.DirectorySeparatorChar + "StoreItems.dat";
         public readonly string file_path_counter = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "Persistance" + Path.DirectorySeparatorChar + "IdCounter.dat";
         private int IdCounter = 0;

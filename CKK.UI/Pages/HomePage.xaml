@@ -35,11 +35,11 @@
             <Button x:Name="add_product_Button" MinWidth="120" MaxWidth="160" MinHeight="20" MaxHeight="48" HorizontalAlignment="Left" FontSize="16" Content="Add Product" Background="#FF50B450" BorderBrush="#FF2B2929" Foreground="White" Click="add_product_Button_Click"/>
 
             <!-- Search Bar -->
-            <TextBox x:Name="searchbar_TextBox" Grid.Column="2" Background="#FFD5D4D4" MinHeight="20" MaxHeight="48" Padding="10,5" BorderBrush="#FF2B2929" SelectionBrush="#FF2B2929"/>
+            <TextBox x:Name="searchbar_TextBox" Grid.Column="2" Background="#FFD5D4D4" MinHeight="20" MaxHeight="48" Padding="10,5" BorderBrush="#FF2B2929" SelectionBrush="#FF2B2929" TextChanged="searchbar_TextBox_TextChanged" KeyDown="searchbar_TextBox_KeyDown"/>
 
             <!-- Search Button -->
-            <Rectangle Grid.Column="3" Fill="#FF50B450" Stroke="#FF2B2929" Margin="-1,0,0,0"/>
-            <Image Grid.Column="3" Source="/Images/search.png" Width="16"/>
+            <Rectangle Grid.Column="3" Fill="#FF50B450" Stroke="#FF2B2929" Margin="-1,0,0,0" MouseDown="Rectangle_MouseDown"/>
+            <Image Grid.Column="3" Source="/Images/search.png" Width="16" MouseDown="Rectangle_MouseDown"/>
 
         </Grid>
 
@@ -54,10 +54,16 @@
                 <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="24"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <ComboBox Name="SearchBy_ComboBox" Grid.Column="4" Grid.ColumnSpan="2"  Height="24" Margin="40,10,0,24" Text="Search Parameters" BorderBrush="#FF3C3C3C" SelectedIndex="0" IsReadOnly="True">
+                <ComboBoxItem Content="Search by Name"/>
+                <ComboBoxItem Content="Search by Quantity"/>
+                <ComboBoxItem Content="Search by Price"/>
+            </ComboBox>
 
             <!-- Header Names -->
             <Rectangle Grid.Column="0" Grid.Row="1" Fill="#FFE8E8E8" Stroke="#FF2B2929" IsHitTestVisible="False" Margin="0,0,0,0"/>
