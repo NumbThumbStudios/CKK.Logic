@@ -8,7 +8,6 @@ namespace CKK.Logic.Models
     public class Product: Entity
     {
         // ----    INSTANCE VARIABLES    ---- //
-        //public decimal Price { get; set; }
         private decimal _price;
         public decimal Price
         {
@@ -31,21 +30,5 @@ namespace CKK.Logic.Models
         public void SetName(string name) { base.Name = name; }
 
         public decimal GetPrice() { return _price; }
-        /*public void SetPrice(decimal price) 
-        { 
-            try
-            {
-                if(price < 0)
-                {
-                    throw new ArgumentOutOfRangeException(nameof(price));
-                }
-
-                _price = price;
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }*/
     }
 }

@@ -7,7 +7,10 @@ namespace CKK.Logic.Models
     public class Customer : Entity
     {
         // ----    INSTANCE VARIABLES    ---- //
+        public int CustomerId { get; set; }
         public string Address { get; set; }
+        public int ShoppingCartId { get; set; }
+        public ShoppingCart Cart { get; set; }
 
 
 

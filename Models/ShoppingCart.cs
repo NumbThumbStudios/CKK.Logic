@@ -9,8 +9,10 @@ namespace CKK.Logic.Models
     public class ShoppingCart : IShoppingCart
     {
         // ----    INSTANCE VARIABLES    ---- //
+        public int ShoppingCartId { get; set; }
+        public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public List<ShoppingCartItem> Products { get; set; }
+        public List<ShoppingCartItem> Products { get; set; } = new List<ShoppingCartItem>();
 
 
 
@@ -19,7 +21,6 @@ namespace CKK.Logic.Models
         public ShoppingCart(Customer cust)
         {
             Customer = cust;
-            Products = new List<ShoppingCartItem>();
         }
 
 

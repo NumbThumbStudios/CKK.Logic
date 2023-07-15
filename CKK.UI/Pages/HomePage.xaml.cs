@@ -63,10 +63,6 @@ namespace CKK.UI.Pages
                 return;
             }
 
-            //List<StoreItem> store_items = new List<StoreItem>();
-
-
-
             List<StoreItem> list = AppWindow.store.GetStoreItems();
 
             if(searchbar_TextBox.Text.Length > 0)
@@ -117,17 +113,11 @@ namespace CKK.UI.Pages
                         break;
                 }
             }
-            
-            //MessageBox.Show(SearchBy_ComboBox.SelectedValue.ToString());
 
             int count = 0;
 
-            //foreach (var item in AppWindow.store.GetStoreItems())
-            //for(int i = 0; i < AppWindow.store.GetStoreItems().Count; i++)
             foreach(var item in list)
             {
-                //var item = AppWindow.store.GetStoreItems()[i];
-
                 int child_count = main_content_area_Grid.RowDefinitions.Count;
                 main_content_area_Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
 
@@ -140,7 +130,6 @@ namespace CKK.UI.Pages
                 rect.SetValue(Grid.RowProperty, child_count);
                 rect.SetValue(Grid.ColumnProperty, 0);
                 rect.SetValue(Grid.ColumnSpanProperty, 6);
-                //if (i % 2 == 0) { rect.Fill = new SolidColorBrush(even); } else { rect.Fill = new SolidColorBrush(odd); }
                 if (count % 2 == 0) { rect.Fill = new SolidColorBrush(even); } else { rect.Fill = new SolidColorBrush(odd); }
                 count++;
                 main_content_area_Grid.Children.Add(rect);
