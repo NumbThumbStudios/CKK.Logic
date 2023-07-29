@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK.ShoppingCartTests.tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK.UI", "CKK.UI\CKK.UI.csproj", "{D514622F-84A5-43FA-BDE3-5D2714D79D96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CKK.Persistance", "CKK.Persistance\CKK.Persistance.csproj", "{4C7EE461-DDF7-4E0D-86D5-C5BAFBA71D52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CKK.Persistance", "CKK.Persistance\CKK.Persistance.csproj", "{4C7EE461-DDF7-4E0D-86D5-C5BAFBA71D52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CKK.DB", "CKK.DB\CKK.DB.csproj", "{724471BB-9671-4194-A624-24B91AAE6D3B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0A2FC8E1-497F-4DEA-8665-4181C83907AF} = {0A2FC8E1-497F-4DEA-8665-4181C83907AF}
+		{4C7EE461-DDF7-4E0D-86D5-C5BAFBA71D52} = {4C7EE461-DDF7-4E0D-86D5-C5BAFBA71D52}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,10 @@ Global
 		{4C7EE461-DDF7-4E0D-86D5-C5BAFBA71D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C7EE461-DDF7-4E0D-86D5-C5BAFBA71D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C7EE461-DDF7-4E0D-86D5-C5BAFBA71D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724471BB-9671-4194-A624-24B91AAE6D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724471BB-9671-4194-A624-24B91AAE6D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724471BB-9671-4194-A624-24B91AAE6D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724471BB-9671-4194-A624-24B91AAE6D3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

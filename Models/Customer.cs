@@ -6,7 +6,15 @@ namespace CKK.Logic.Models
     [Serializable]
     public class Customer : Entity
     {
-        // ----    INSTANCE VARIABLES    ---- //
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int ShoppingCartId { get; set; }
+
+
+
+
+        /*// ----    INSTANCE VARIABLES    ---- //
         public int CustomerId { get; set; }
         public string Address { get; set; }
         public int ShoppingCartId { get; set; }
@@ -23,6 +31,6 @@ namespace CKK.Logic.Models
         public void SetName(string name) { base.Name = name; }
 
         public string GetAddress() { return Address; }
-        public void SetAddress(string address) { Address = address; }
+        public void SetAddress(string address) { Address = address; }*/
     }
 }
