@@ -14,7 +14,7 @@ namespace CKK.Persistance.Models
     public class FileStore : IStore, ISavable, ILoadable
     {
         // ----    INSTANCE VARIABLES    ---- //
-        private List<StoreItem> items = new List<StoreItem>();
+        //private List<StoreItem> items = new List<StoreItem>();
         public string search_terms = "";
         public readonly string FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "Persistance" + Path.DirectorySeparatorChar + "StoreItems.dat";
         public readonly string file_path_counter = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "Persistance" + Path.DirectorySeparatorChar + "IdCounter.dat";
@@ -36,7 +36,7 @@ namespace CKK.Persistance.Models
 
 
         // ----    METHODS    ---- //
-        public StoreItem AddStoreItem(Product prod, int quantity = 1)
+        /*public StoreItem AddStoreItem(Product prod, int quantity = 1)
         {
             StoreItem? my_item = null;
 
@@ -60,9 +60,9 @@ namespace CKK.Persistance.Models
             }
 
             return my_item;
-        }
+        }*/
 
-        public StoreItem RemoveStoreItem(int id, int quantity)
+        /*public StoreItem RemoveStoreItem(int id, int quantity)
         {
             if (quantity < 0) { throw new ArgumentOutOfRangeException(); }
 
@@ -85,9 +85,9 @@ namespace CKK.Persistance.Models
             }
 
             return my_item;
-        }
+        }*/
 
-        public void DeleteStoreItem(int id)
+        /*public void DeleteStoreItem(int id)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -97,9 +97,9 @@ namespace CKK.Persistance.Models
                     return;
                 }
             }
-        }
+        }*/
 
-        public StoreItem FindStoreItemById(int id)
+        /*public StoreItem FindStoreItemById(int id)
         {
             if (id < 0) { throw new InvalidIdException(); }
 
@@ -121,11 +121,13 @@ namespace CKK.Persistance.Models
         public List<StoreItem> GetStoreItems()
         {
             return items;
-        }
+        }*/
 
         public void Load()
         {
-            items.Clear();
+            
+
+            /*items.Clear();
 
             if(!File.Exists(FilePath)) { return; }
 
@@ -151,15 +153,15 @@ namespace CKK.Persistance.Models
             catch
             {
                 File.WriteAllText(file_path_counter, "0");
-            }
+            }*/
         }
 
         public void Save()
         {
-            string items_to_string = JsonSerializer.Serialize(items);
+            /*string items_to_string = JsonSerializer.Serialize(items);
             File.WriteAllText(FilePath, items_to_string);
 
-            File.WriteAllText(file_path_counter, IdCounter.ToString());
+            File.WriteAllText(file_path_counter, IdCounter.ToString());*/
         }
 
         private void CreatePath()

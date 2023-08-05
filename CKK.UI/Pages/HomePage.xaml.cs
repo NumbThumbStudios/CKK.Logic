@@ -17,11 +17,9 @@ using System.Windows.Shapes;
 
 namespace CKK.UI.Pages
 {
-    /// <summary>
-    /// Interaction logic for HomePage.xaml
-    /// </summary>
     public partial class HomePage : Page
     {
+        List<Product> list_of_products = new List<Product>();
         public HomePage()
         {
             InitializeComponent();
@@ -37,18 +35,18 @@ namespace CKK.UI.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            AppWindow.store.Load();
-            searchbar_TextBox.Text = AppWindow.store.search_terms.ToString();
             LoadStoreItems();
         }
 
         private void LoadStoreItems()
         {
+            List<Product> products = AppWindow.uow.Products.GetAll();
+            list_of_products = products;
 
             main_content_area_Grid.Children.Clear();
             main_content_area_Grid.RowDefinitions.Clear();
 
-            if(AppWindow.store.GetStoreItems().Count == 0)
+            if(products.Count == 0)
             {
                 TextBlock tb_empty = new TextBlock();
                 tb_empty.Text = "No Products Added";
@@ -63,11 +61,11 @@ namespace CKK.UI.Pages
                 return;
             }
 
-            List<StoreItem> list = AppWindow.store.GetStoreItems();
+            List<Product> list = products;
 
             if(searchbar_TextBox.Text.Length > 0)
             {
-                string selected_item = ((ComboBoxItem)SearchBy_ComboBox.SelectedItem).Content.ToString();
+                string? selected_item = ((ComboBoxItem)SearchBy_ComboBox.SelectedItem).Content.ToString();
                 switch (selected_item)
                 {
                     case "Search by Name":
@@ -76,9 +74,9 @@ namespace CKK.UI.Pages
                             string search_by_name = searchbar_TextBox.Text;
 
                             list =
-                            (from item in AppWindow.store.GetStoreItems()
-                             orderby item.GetProduct().GetId()
-                             where item.GetProduct().GetName().ToString().ToLower().Contains(search_by_name.ToString().ToLower())
+                            (from item in products
+                             orderby item.Id
+                             where item.Name.ToString().ToLower().Contains(search_by_name.ToString().ToLower())
                              select item).ToList();
                         }
                         catch { }
@@ -90,8 +88,8 @@ namespace CKK.UI.Pages
                             int search_by_quantity = int.Parse(searchbar_TextBox.Text);
 
                             list =
-                            (from item in AppWindow.store.GetStoreItems()
-                             orderby item.GetProduct().GetId()
+                            (from item in products
+                             orderby item.Id
                              where item.Quantity.ToString().Contains(searchbar_TextBox.Text)
                              select item).ToList();
                         }
@@ -104,9 +102,9 @@ namespace CKK.UI.Pages
                             decimal search_by_price = decimal.Parse(searchbar_TextBox.Text);
 
                             list =
-                            (from item in AppWindow.store.GetStoreItems()
-                             orderby item.GetProduct().GetId()
-                             where item.GetProduct().GetPrice().ToString().Contains(searchbar_TextBox.Text)
+                            (from item in products
+                             orderby item.Id
+                             where item.Price.ToString().Contains(searchbar_TextBox.Text)
                              select item).ToList();
                         }
                         catch { }
@@ -116,7 +114,7 @@ namespace CKK.UI.Pages
 
             int count = 0;
 
-            foreach(var item in list)
+            foreach(Product item in list)
             {
                 int child_count = main_content_area_Grid.RowDefinitions.Count;
                 main_content_area_Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
@@ -136,7 +134,7 @@ namespace CKK.UI.Pages
 
                 // Set product ID...
                 TextBlock tb_id = new TextBlock();
-                tb_id.Text = item.GetProduct().GetId().ToString();
+                tb_id.Text = item.Id.ToString();
                 tb_id.SetValue(Grid.RowProperty, child_count);
                 tb_id.SetValue(Grid.ColumnProperty, 0);
                 tb_id.Margin = margin;
@@ -144,7 +142,7 @@ namespace CKK.UI.Pages
 
                 // Set product Name...
                 TextBlock tb_name = new TextBlock();
-                tb_name.Text = item.GetProduct().Name;
+                tb_name.Text = item.Name;
                 tb_name.SetValue(Grid.RowProperty, child_count);
                 tb_name.SetValue(Grid.ColumnProperty, 1);
                 tb_name.Margin = margin;
@@ -152,7 +150,7 @@ namespace CKK.UI.Pages
 
                 // Set quantity...
                 TextBlock tb_quantity = new TextBlock();
-                tb_quantity.Text = $"{item.GetQuantity():n0}";
+                tb_quantity.Text = $"{item.Quantity:n0}";
                 tb_quantity.SetValue(Grid.RowProperty, child_count);
                 tb_quantity.SetValue(Grid.ColumnProperty, 2);
                 tb_quantity.Margin = margin;
@@ -160,7 +158,7 @@ namespace CKK.UI.Pages
 
                 // Set Price...
                 TextBlock tb_price = new TextBlock();
-                tb_price.Text = $"{item.GetProduct().GetPrice():C}";
+                tb_price.Text = $"{item.Price:C}";
                 tb_price.SetValue(Grid.RowProperty, child_count);
                 tb_price.SetValue(Grid.ColumnProperty, 3);
                 tb_price.Margin = margin;
@@ -177,10 +175,11 @@ namespace CKK.UI.Pages
                 tb_remove.FontWeight = FontWeights.SemiBold;
                 tb_remove.MaxWidth = 100;
                 tb_remove.Margin = margin;
-                tb_remove.Uid = item.GetProduct().GetId().ToString();
-                string bt_name = item.GetProduct().Name;
+                tb_remove.Uid = item.Id.ToString();
+                string bt_name = item.Name;
                 bt_name = bt_name.Replace(" ", "_");
-                tb_remove.Name = bt_name;
+                //tb_remove.Name = bt_name;
+                tb_remove.Name = "item_" + item.Id.ToString();
                 tb_remove.Click += new RoutedEventHandler(RemoveItem);
                 main_content_area_Grid.Children.Add(tb_remove);
 
@@ -195,6 +194,7 @@ namespace CKK.UI.Pages
                 tb_edit.FontWeight = FontWeights.SemiBold;
                 tb_edit.MaxWidth = 100;
                 tb_edit.Margin = margin;
+                tb_edit.Click += new RoutedEventHandler(EditItem);
                 main_content_area_Grid.Children.Add(tb_edit);
             }
         }
@@ -203,22 +203,33 @@ namespace CKK.UI.Pages
         {
             var btn = (Button)sender;
             int uid = int.Parse(btn.Uid);
-            string name = btn.Name;
-            name = name.Replace("_", " ");
+            string name = "";
 
-            MessageBoxResult result = MessageBox.Show($"Are you sure you want to remove '{name}' from the store inventory system?\nThis action cannot be undone.", "Remove Item", MessageBoxButton.YesNo);
-            if(result == MessageBoxResult.Yes) 
+            foreach(var item in list_of_products)
             {
-                AppWindow.store.DeleteStoreItem(uid);
-                LoadStoreItems();
-
-                AppWindow.store.Save();
+                if(item.Id == uid)
+                {
+                    name = item.Name;
+                    break;
+                }
             }
+
+            MessageBoxResult result = MessageBox.Show($"Are you sure you want to remove '{name}' from the store inventory system? This action CANNOT be undone.", "Remove Item", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                AppWindow.uow.Products.Delete(uid);
+                LoadStoreItems();
+            }
+        }
+
+        private void EditItem(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Still in progress!");
         }
 
         private void searchbar_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            AppWindow.store.search_terms = searchbar_TextBox.Text;
+            //AppWindow.store.search_terms = searchbar_TextBox.Text;
             LoadStoreItems();
         }
 

@@ -13,12 +13,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.143" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0-preview.6.23329.7" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0-preview.6.23329.7" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\ckk_logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CKK.DB\CKK.DB.csproj" />
     <ProjectReference Include="..\CKK.Logic.csproj" />
     <ProjectReference Include="..\CKK.Persistance\CKK.Persistance.csproj" />
   </ItemGroup>
