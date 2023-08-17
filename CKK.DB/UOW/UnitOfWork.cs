@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CKK.DB.UOW
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         public UnitOfWork(IConnectionFactory Conn)
         {

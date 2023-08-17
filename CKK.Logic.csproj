@@ -6,16 +6,19 @@
 
   <ItemGroup>
     <Compile Remove="CKK.DB\**" />
+    <Compile Remove="CKK.Online\**" />
     <Compile Remove="CKK.Persistance\**" />
     <Compile Remove="CKK.UI\**" />
     <Compile Remove="CKK\**" />
     <Compile Remove="Tests\**" />
     <EmbeddedResource Remove="CKK.DB\**" />
+    <EmbeddedResource Remove="CKK.Online\**" />
     <EmbeddedResource Remove="CKK.Persistance\**" />
     <EmbeddedResource Remove="CKK.UI\**" />
     <EmbeddedResource Remove="CKK\**" />
     <EmbeddedResource Remove="Tests\**" />
     <None Remove="CKK.DB\**" />
+    <None Remove="CKK.Online\**" />
     <None Remove="CKK.Persistance\**" />
     <None Remove="CKK.UI\**" />
     <None Remove="CKK\**" />
